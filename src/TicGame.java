@@ -64,12 +64,12 @@ public class TicGame implements Runnable {
                 deltaF--;
             }
 
-            if (System.currentTimeMillis() - lastCheck >= 1000) {//every 1 sec
-                lastCheck = System.currentTimeMillis();
-                System.out.println("FPS: " + frames +" | " + updates );
-                frames = 0;
-                updates = 0;
-            }
+//            if (System.currentTimeMillis() - lastCheck >= 1000) {//every 1 sec
+//                lastCheck = System.currentTimeMillis();
+//                System.out.println("FPS: " + frames +" | " + updates );
+//                frames = 0;
+//                updates = 0;
+//            }
         }
     }
 

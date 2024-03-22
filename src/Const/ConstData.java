@@ -15,6 +15,11 @@ public class ConstData {
          public static final Color bigPanelBackground = new Color(0x2A343D);
          public static final Color gamePanelBackground = new Color(0x14213D);
          public static final Color gamePanelLinesBackground = new Color(0xE5E5E5);
+         public static final int signWidth = 120;
+         public static final int signThickness = 15;
+         public static final Color circleColor = new Color(0x860019);
+
+
 
      }
  //UIManager.put("activeCaption", new javax.swing.plaf.ColorUIResource(

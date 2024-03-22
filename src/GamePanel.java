@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 
 import static Const.ConstData.Data.*;
 public class GamePanel extends JPanel implements MouseListener {
+
     public GamePanel() {
         setLocation(0,upper_gap);
         setSize(new Dimension(GamePanel_WIDTH,GamePanel_HEIGHT));
@@ -13,6 +14,7 @@ public class GamePanel extends JPanel implements MouseListener {
 
         setLayout(null);
     }
+
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -34,7 +36,28 @@ public class GamePanel extends JPanel implements MouseListener {
             g.drawLine(0,i * (GamePanel_WIDTH / 3 - 1),GamePanel_WIDTH,i * (GamePanel_WIDTH / 3 - 1));
         }
         g.drawLine(0,GamePanel_HEIGHT - 1,GamePanel_WIDTH - 1,GamePanel_HEIGHT - 1);//last horizontal line
+
+        circleSingDrawing(g);
     }
+
+    public void drawPlayerSing(int player) {
+
+    }
+
+    public void circleSingDrawing(Graphics g) {
+        //because i couldn't find the draw-oval method with thickness first
+        //i draw full circle ,and then I draw same color circle with game panel background
+        //it is back circle
+        g.setColor(circleColor);
+        g.fillArc(13,13,signWidth,signWidth,0,360);
+
+        //and drawing the front circle to have o form circle with inner blank ,but it is not actually
+        g.setColor(gamePanelBackground);
+        g.fillOval(13 + signThickness ,13 + signThickness,signWidth - (signThickness * 2) ,signWidth - (signThickness * 2));
+    }
+
+
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
