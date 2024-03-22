@@ -55,7 +55,7 @@ public class TicGame implements Runnable {
 
             if (deltaF >= 1) {//for Fps
                 //put your statement in this part
-
+                gamePanel.repaint();
 
                 //
 

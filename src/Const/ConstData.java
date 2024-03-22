@@ -4,6 +4,12 @@ import java.awt.*;
 
 public class ConstData {
      public static class Data{
+         public static int[][] cellSate = { //0 is emty ir null, 1 is O , 2 is X
+                 {0,1,0},
+                 {0,2,2},
+                 {1,1,0}
+         };
+
          public static final int FRAME_WIDTH = 450;
          public static final int FRAME_HEIGHT = 600;
 

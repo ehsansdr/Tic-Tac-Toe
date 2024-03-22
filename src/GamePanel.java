@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import static Const.ConstData.Data.*;
 public class GamePanel extends JPanel implements MouseListener {
     Graphics2D g2;
+    Point mouseClicked = new Point();
 
     public GamePanel() {
         setLocation(0,upper_gap);
@@ -40,30 +41,47 @@ public class GamePanel extends JPanel implements MouseListener {
         }
         g.drawLine(0,GamePanel_HEIGHT - 1,GamePanel_WIDTH - 1,GamePanel_HEIGHT - 1);//last horizontal line
 
-        OSingDrawing(g2);
-        XSingDrawing(g2,2,2);
+        for (int i = 0; i < 3;i++){/**   BUG */
+            for (int j = 0;j < 3 ;j++){
+                if(cellSate[i][j] == 1 || cellSate[i][j] == 2){
+                    System.out.println(" i : " + i + "   j : " + j);
+                    singDrawing(g2,cellSate[i][j],i,j);
+                }
+            }
+        }
     }
 
 
-    private void XSingDrawing(Graphics2D g,int cellRow,int cellColumn) {
+    private void singDrawing(Graphics2D g,int player,int cellRow ,int cellColumn) {
+        System.out.println("singDrawing");
+
         /**BE CAREFUL
 
         ROWS:
          0
          1
          2
-COLUMN:    0  1  2
+0COLUMN:    0  1  2
          */
-        // 0 OR 1 OR 2 , NOT 3
-
-
+        cellRow++;
+        cellColumn++;
         int xOfSing = cellRow * (GamePanel_WIDTH / 3) + 27;
         int YOfSing = cellColumn * (GamePanel_HEIGHT / 3) + 27;
         int signWidth = 90;
-        g.setColor(xColor);
-        g.setStroke(new BasicStroke(18));
-        g.drawLine(xOfSing,YOfSing,xOfSing + signWidth,YOfSing + signWidth);// \
-        g.drawLine(xOfSing ,YOfSing + signWidth ,xOfSing + signWidth,YOfSing);// /
+        // 0 OR 1 OR 2 , NOT 3
+        if(player == 2) {
+            g.setColor(xColor);
+            g.setStroke(new BasicStroke(18));
+            g.drawLine(xOfSing, YOfSing, xOfSing + signWidth, YOfSing + signWidth);// \
+            g.drawLine(xOfSing, YOfSing + signWidth, xOfSing + signWidth, YOfSing);// /
+        }
+        else if(player == 1){
+            g.setColor(circleColor);
+            g.setStroke(new BasicStroke(signThickness));
+            g.drawArc(cellRow * (GamePanel_WIDTH / 3) + 22,
+                    cellColumn * (GamePanel_HEIGHT / 3) + 22,
+                    signWidth, signWidth, 0, 360);
+        }
     }
 
     public void drawPlayerSing(int player) {
@@ -82,6 +100,14 @@ COLUMN:    0  1  2
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        mouseClicked.x = e.getX();
+        mouseClicked.y = e.getY();
+
+        if(mouseClicked.x < (GamePanel_WIDTH / 3) - 1 && mouseClicked.y < (GamePanel_WIDTH / 3) - 1){//-1 is beacuse of we dont want to
+            //have clicked on white line and get sign in panel just between them
+            cellSate[0][0] = 1;
+            System.out.println("0 0");
+        }
 
     }
 
