@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 
 import static Const.ConstData.Data.*;
 public class GamePanel extends JPanel implements MouseListener {
+    Graphics2D g2;
 
     public GamePanel() {
         setLocation(0,upper_gap);
@@ -16,9 +17,11 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
 
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g2 = (Graphics2D) g;
 
         g.setColor(gamePanelLinesBackground);
 
@@ -37,23 +40,41 @@ public class GamePanel extends JPanel implements MouseListener {
         }
         g.drawLine(0,GamePanel_HEIGHT - 1,GamePanel_WIDTH - 1,GamePanel_HEIGHT - 1);//last horizontal line
 
-        circleSingDrawing(g);
+        OSingDrawing(g2);
+        XSingDrawing(g2,2,2);
+    }
+
+
+    private void XSingDrawing(Graphics2D g,int cellRow,int cellColumn) {
+        /**BE CAREFUL
+
+        ROWS:
+         0
+         1
+         2
+COLUMN:    0  1  2
+         */
+        // 0 OR 1 OR 2 , NOT 3
+
+
+        int xOfSing = cellRow * (GamePanel_WIDTH / 3) + 27;
+        int YOfSing = cellColumn * (GamePanel_HEIGHT / 3) + 27;
+        int signWidth = 90;
+        g.setColor(xColor);
+        g.setStroke(new BasicStroke(18));
+        g.drawLine(xOfSing,YOfSing,xOfSing + signWidth,YOfSing + signWidth);// \
+        g.drawLine(xOfSing ,YOfSing + signWidth ,xOfSing + signWidth,YOfSing);// /
     }
 
     public void drawPlayerSing(int player) {
 
     }
 
-    public void circleSingDrawing(Graphics g) {
-        //because i couldn't find the draw-oval method with thickness first
-        //i draw full circle ,and then I draw same color circle with game panel background
-        //it is back circle
-        g.setColor(circleColor);
-        g.fillArc(13,13,signWidth,signWidth,0,360);
+    public void OSingDrawing(Graphics2D g) {
 
-        //and drawing the front circle to have o form circle with inner blank ,but it is not actually
-        g.setColor(gamePanelBackground);
-        g.fillOval(13 + signThickness ,13 + signThickness,signWidth - (signThickness * 2) ,signWidth - (signThickness * 2));
+        g.setColor(circleColor);
+        g.setStroke(new BasicStroke(signThickness));
+        g.drawArc(22, 22, signWidth, signWidth, 0, 360);
     }
 
 
@@ -61,7 +82,7 @@ public class GamePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("X = " + e.getX() + " Y = " + e.getY());
+
     }
 
     @Override
