@@ -11,10 +11,7 @@ public class Frame extends JFrame {
         this.bigPanel = bigPanel;
         this.cells = cells;
 
-
         frameCreation();
-
-
 
         addingComponents();
 

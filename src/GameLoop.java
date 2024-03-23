@@ -19,6 +19,7 @@ public class GameLoop implements Runnable {
         gameLoopThread = new Thread(this);
         gameLoopThread.start();
 
+        clockTimePart = timerDuration * timerDurationFPS;
     }
     @Override
     public void run(){
@@ -27,6 +28,8 @@ public class GameLoop implements Runnable {
         double perTimerDuration = 1000000000.0 / timerDurationFPS;
 
         long previousTime = System.nanoTime();
+
+
 
         int frames = 0;
         int updates = 0;
@@ -42,6 +45,7 @@ public class GameLoop implements Runnable {
 
             deltaU += (currentTime - previousTime) / timePerUpdate;
             deltaF += (currentTime - previousTime) / timePerFrame;
+            deltaTimer += (currentTime - previousTime) / perTimerDuration;
             previousTime = currentTime;
 
             if (deltaU >= 1) {
@@ -54,18 +58,16 @@ public class GameLoop implements Runnable {
                 deltaU--;
             }
 
-            if (deltaF >= 1) {//for Fps
+            if (deltaTimer >= 1) {//for Fps
                 //put your statement in this part
-
-                clockTimePart++;
+                currentTimerPosition += 360 /  clockTimePart;
                 cells.repaint();
                 bigPanel.repaint();
 
                 //
 
                 /** DO NOT OMIT THESE TWO STATEMENT*/
-                frames++;
-                deltaF--;
+                deltaTimer--;
             }
 
 
@@ -73,12 +75,12 @@ public class GameLoop implements Runnable {
             if (System.currentTimeMillis() - lastCheck > 1000) {//every 10 sec
                 lastCheck = System.currentTimeMillis();
 
-
                 timerMonitor--;
-                if (timerMonitor == 0){
-                    timerMonitor = timerDuration - (timerDuration / 10);
-                    clockTimePart = 60 / timerDuration;
 
+                if (timerMonitor == 0){
+                    currentTimerPosition = 0;
+                    timerMonitor = timerDuration - (timerDuration / 10);
+                    currentTimerPosition = 0;
                 }
 
                 frames = 0;

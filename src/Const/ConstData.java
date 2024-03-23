@@ -12,8 +12,8 @@ public class ConstData {
          public int playerTurn = 1;
          public static int timerDuration = 10;//how many second timer should take a long
          public static int timerMonitor = timerDuration - (timerDuration / 10) ;
-         public static int clockTimePart = 60  / timerDuration;
-         public static int timerArcAngel = 0;
+         public static float clockTimePart;
+         public static float currentTimerPosition = 0;
          public static final int FRAME_WIDTH = 450;
          public static final int FRAME_HEIGHT = 600;
 

@@ -77,8 +77,8 @@ public class BigPanel extends JPanel {
     private void TimerClock(Graphics2D g2) {
         g2.setColor(timerOuterCircle);
         g2.setStroke(timerStroke);
-        g2.drawArc(185,15 ,70,70,90, -clockTimePart);
-
+        g2.drawArc(185,15 ,70,70,90,(int) -currentTimerPosition);
+        System.out.println(currentTimerPosition);
     }
 
     private void bigPanelCreation() {
