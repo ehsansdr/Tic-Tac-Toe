@@ -95,4 +95,6 @@ public class TicGame implements Runnable {
         frame.add(bigPanel);
         frame.add(gamePanel);
     }
+
+
 }
