@@ -27,6 +27,10 @@ public class Cells extends JPanel implements MouseListener {
 
         g.setColor(gamePanelLinesBackground);
 
+        //I added this becuase we have setStroke(); in bigPanel and
+        //that effect on this class paining
+        ((Graphics2D) g).setStroke(new BasicStroke(1));
+
         //vertical lines
         g.drawLine(0,0,0,GamePanel_HEIGHT);//first vertical line
         for (int i = 1; i <= 2;i++){

@@ -7,8 +7,9 @@ public class GameLoop implements Runnable {
     BigPanel bigPanel;
     Cells cells = new Cells();
 
-    private int fps = 5;
+    private int fps = 40;
     private int UPS = 120;
+    private int timerDurationFPS = 120;//we use this var to control upper timer of our bigPanel
     Thread gameLoopThread;
 
     public GameLoop() {
@@ -23,15 +24,18 @@ public class GameLoop implements Runnable {
     public void run(){
         double timePerFrame = 1000000000.0 / fps;
         double timePerUpdate = 1000000000.0 / UPS;
+        double perTimerDuration = 1000000000.0 / timerDurationFPS;
 
         long previousTime = System.nanoTime();
 
         int frames = 0;
         int updates = 0;
+        int timerDurationIfController = 0;
         long lastCheck = System.currentTimeMillis();
 
         double deltaU = 0;
         double deltaF = 0;
+        double deltaTimer = 0;
 
         while (true) {
             long currentTime = System.nanoTime();
@@ -52,7 +56,10 @@ public class GameLoop implements Runnable {
 
             if (deltaF >= 1) {//for Fps
                 //put your statement in this part
+
+                clockTimePart++;
                 cells.repaint();
+                bigPanel.repaint();
 
                 //
 
@@ -61,6 +68,22 @@ public class GameLoop implements Runnable {
                 deltaF--;
             }
 
+
+
+            if (System.currentTimeMillis() - lastCheck > 1000) {//every 10 sec
+                lastCheck = System.currentTimeMillis();
+
+
+                timerMonitor--;
+                if (timerMonitor == 0){
+                    timerMonitor = timerDuration - (timerDuration / 10);
+                    clockTimePart = 60 / timerDuration;
+
+                }
+
+                frames = 0;
+                updates = 0;
+            }
 //            if (System.currentTimeMillis() - lastCheck >= 1000) {//every 1 sec
 //                lastCheck = System.currentTimeMillis();
 //                System.out.println("FPS: " + frames +" | " + updates );

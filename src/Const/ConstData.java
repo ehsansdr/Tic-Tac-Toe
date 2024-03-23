@@ -10,7 +10,10 @@ public class ConstData {
                  {0,0,0}
          };
          public int playerTurn = 1;
-
+         public static int timerDuration = 10;//how many second timer should take a long
+         public static int timerMonitor = timerDuration - (timerDuration / 10) ;
+         public static int clockTimePart = 60  / timerDuration;
+         public static int timerArcAngel = 0;
          public static final int FRAME_WIDTH = 450;
          public static final int FRAME_HEIGHT = 600;
 
@@ -19,13 +22,15 @@ public class ConstData {
 
          public static final int upper_gap = 125;
          public static final Color frameBackground = new Color(0x000000);
-         public static final Color bigPanelBackground = new Color(0x2A343D);
-         public static final Color gamePanelBackground = new Color(0x14213D);
-         public static final Color gamePanelLinesBackground = new Color(0xE5E5E5);
+         public static final Color bigPanelBackground = new Color(0x151F2A);
+         public static final Color gamePanelBackground = new Color(0x043565);
+         public static final Color gamePanelLinesBackground = new Color(0xFF9F9F9F, true);
          public static final int signWidth = 100;
          public static final int signThickness = 15;
-         public static final Color xColor = new Color(0xA4161A);
+         public static final Color xColor = new Color(0x9A0A0D);
          public static final Color circleColor = new Color(0x1F7A8C);
+         public static final Color timerInnerCircle = new Color(0xF0FF3A);
+         public static final Color timerOuterCircle = new Color(0xFFC300);
 
 
 
