@@ -3,7 +3,7 @@ import java.awt.*;
 import static Const.ConstData.Data.*;
 
 public class TicGame implements Runnable {
-    JFrame frame = new JFrame();
+    TicFrame frame;
     JPanel bigPanel = new JPanel();
     GamePanel gamePanel = new GamePanel();
 
@@ -13,10 +13,7 @@ public class TicGame implements Runnable {
 
 
     public TicGame() {
-        frameCreation();
-        bigPanelCreation();
-        addingComponents();
-
+        frame = new TicFrame(gamePanel,bigPanel);
 
         gameLoopThread = new Thread(this);
         gameLoopThread.start();
