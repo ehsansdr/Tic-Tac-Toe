@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -12,6 +9,6 @@ public class Main {
         uiDefaults.put("activeCaptionText", new javax.swing.plaf.ColorUIResource(Color.white));
         JFrame.setDefaultLookAndFeelDecorated(true);
         */
-        TicGame ticGame = new TicGame();
+        GameLoop ticGameLoop = new GameLoop();
     }
 }

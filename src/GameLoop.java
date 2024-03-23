@@ -2,18 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import static Const.ConstData.Data.*;
 
-public class TicGame implements Runnable {
-    TicFrame frame;
-    JPanel bigPanel = new JPanel();
-    GamePanel gamePanel = new GamePanel();
+public class GameLoop implements Runnable {
+    Frame frame;
+    BigPanel bigPanel;
+    Cells cells = new Cells();
 
     private int fps = 5;
     private int UPS = 120;
     Thread gameLoopThread;
 
-
-    public TicGame() {
-        frame = new TicFrame(gamePanel,bigPanel);
+    public GameLoop() {
+        bigPanel = new BigPanel(cells);
+        frame = new Frame(bigPanel,cells);
 
         gameLoopThread = new Thread(this);
         gameLoopThread.start();
@@ -52,7 +52,7 @@ public class TicGame implements Runnable {
 
             if (deltaF >= 1) {//for Fps
                 //put your statement in this part
-                gamePanel.repaint();
+                cells.repaint();
 
                 //
 
@@ -69,9 +69,6 @@ public class TicGame implements Runnable {
 //            }
         }
     }
-
-
-
     private void bigPanelCreation() {
         bigPanel.setPreferredSize(new Dimension(FRAME_WIDTH,FRAME_HEIGHT));
         bigPanel.setLayout(null);
@@ -90,7 +87,7 @@ public class TicGame implements Runnable {
     }
     private void addingComponents() {
         frame.add(bigPanel);
-        frame.add(gamePanel);
+        frame.add(cells);
     }
 
 

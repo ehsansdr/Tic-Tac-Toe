@@ -4,12 +4,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import static Const.ConstData.Data.*;
-public class GamePanel extends JPanel implements MouseListener {
+public class Cells extends JPanel implements MouseListener {
     public int playerTurn = 1;
     Graphics2D g2;
     Point mouseClicked = new Point();
 
-    public GamePanel() {
+    public Cells() {
         setLocation(0,upper_gap);
         setSize(new Dimension(GamePanel_WIDTH,GamePanel_HEIGHT));
         setBackground(gamePanelBackground);
