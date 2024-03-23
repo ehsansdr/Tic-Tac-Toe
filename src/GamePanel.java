@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 
 import static Const.ConstData.Data.*;
 public class GamePanel extends JPanel implements MouseListener {
+    public int playerTurn = 1;
     Graphics2D g2;
     Point mouseClicked = new Point();
 

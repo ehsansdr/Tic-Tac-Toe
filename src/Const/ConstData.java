@@ -9,7 +9,7 @@ public class ConstData {
                  {0,0,0},
                  {0,0,0}
          };
-         public static int playerTurn = 1;
+         public int playerTurn = 1;
 
          public static final int FRAME_WIDTH = 450;
          public static final int FRAME_HEIGHT = 600;
