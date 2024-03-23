@@ -7,7 +7,7 @@ public class TicGame implements Runnable {
     JPanel bigPanel = new JPanel();
     GamePanel gamePanel = new GamePanel();
 
-    private int fps = 120;
+    private int fps = 5;
     private int UPS = 120;
     Thread gameLoopThread;
 
