@@ -11,7 +11,7 @@ public class ConstData {
          };
          public int playerTurn = 1;
          public static int timerDuration = 10;//how many second timer should take a long
-         public static int timerMonitor = timerDuration - (timerDuration / 10) ;
+         public static int timerMonitor = timerDuration;
          public static float clockTimePart;
          public static float currentTimerPosition = 0;
          public static final int FRAME_WIDTH = 450;

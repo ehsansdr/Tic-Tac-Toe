@@ -48,17 +48,17 @@ public class GameLoop implements Runnable {
             deltaTimer += (currentTime - previousTime) / perTimerDuration;
             previousTime = currentTime;
 
-            if (deltaU >= 1) {
-                //put your statement in this part
+//            if (deltaU >= 1) {
+//                //put your statement in this part
+//
+//                //
+//
+//                /** DO NOT OMIT THESE TWO STATEMENT*/
+//                updates++;
+//                deltaU--;
+//            }
 
-                //
-
-                /** DO NOT OMIT THESE TWO STATEMENT*/
-                updates++;
-                deltaU--;
-            }
-
-            if (deltaTimer >= 1) {//for Fps
+            if (deltaTimer >= 1) {//for Fps of timer
                 //put your statement in this part
                 currentTimerPosition += 360 /  clockTimePart;
                 cells.repaint();
@@ -70,21 +70,19 @@ public class GameLoop implements Runnable {
                 deltaTimer--;
             }
 
-
-
-            if (System.currentTimeMillis() - lastCheck > 1000) {//every 10 sec
+            //this if control the number that show in timer
+            if (System.currentTimeMillis() - lastCheck > 1000) {//every 1 sec
                 lastCheck = System.currentTimeMillis();
 
                 timerMonitor--;
 
-                if (timerMonitor == 0){
+                if (timerMonitor < 1){
                     currentTimerPosition = 0;
-                    timerMonitor = timerDuration - (timerDuration / 10);
+                    timerMonitor = timerDuration;
                     currentTimerPosition = 0;
                 }
 
-                frames = 0;
-                updates = 0;
+
             }
 //            if (System.currentTimeMillis() - lastCheck >= 1000) {//every 1 sec
 //                lastCheck = System.currentTimeMillis();

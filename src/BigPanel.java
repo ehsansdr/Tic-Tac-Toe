@@ -75,10 +75,15 @@ public class BigPanel extends JPanel {
     }
 
     private void TimerClock(Graphics2D g2) {
-        g2.setColor(timerOuterCircle);
+        //if the time is almost running out the color goes to reddish
+        //we calculate that base on angle and arc not by time because have calculation more
+        if (currentTimerPosition >= 280){
+            g2.setColor(new Color(0xA20000));
+        }else{
+            g2.setColor(timerOuterCircle);
+        }
         g2.setStroke(timerStroke);
         g2.drawArc(185,15 ,70,70,90,(int) -currentTimerPosition);
-        System.out.println(currentTimerPosition);
     }
 
     private void bigPanelCreation() {
