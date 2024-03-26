@@ -9,7 +9,7 @@ public class ConstData {
                  {0,0,0},
                  {0,0,0}
          };
-         public int playerTurn = 1;
+         public static int playerTurn = 2;//0 is for waiting or no one playing,1 means it player 1 turn ,2 is for player 2
          public static int timerDuration = 10;//how many second timer should take a long
          public static int timerMonitor = timerDuration;
          public static float clockTimePart;

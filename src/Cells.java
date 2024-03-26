@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 
 import static Const.ConstData.Data.*;
 public class Cells extends JPanel implements MouseListener {
-    public int playerTurn = 1;
+
     Graphics2D g2;
     Point mouseClicked = new Point();
 
@@ -50,7 +50,7 @@ public class Cells extends JPanel implements MouseListener {
             for (int j = 0;j < 3 ;j++){
                 if(cellSate[i][j] == 1 || cellSate[i][j] == 2) {
                     //System.out.println(" i : " + i + "   j : " + j);
-                    singDrawing(g2, 2, i, j);
+                    singDrawing(g2, playerTurn, i, j);
                 }
             }
         }
@@ -116,18 +116,54 @@ public class Cells extends JPanel implements MouseListener {
             //-1 is beacuse of we dont want to
            //have clicked on white line and get sign in panel just between them
             cellSate[0][0] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[0][0]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[0][0]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
             System.out.println("1 1");
         }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1       //. 1 x 2 . 3
                 && mouseClicked.x < (2 * (GamePanel_WIDTH / 3)) - 1     //. 1 . 2 . 3
                 && mouseClicked.y < (1 * (GamePanel_WIDTH / 3)) - 1)    //. 1 . 2 . 3
         {
             cellSate[0][1] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[0][1]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[0][1]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
             System.out.println("1 2");
         }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1       //. 1 . 2 x 3
                 && mouseClicked.x < (3 * (GamePanel_WIDTH / 3)) - 1     //. 1 . 2 . 3
                 && mouseClicked.y < (1 * (GamePanel_WIDTH / 3)) - 1)    //. 1 . 2 . 3
         {
             cellSate[0][2] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[0][2]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[0][2]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
             System.out.println("1 3");
         }else if(//mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                    mouseClicked.y > (1 * (GamePanel_WIDTH / 3)) - 1     //x  .  .
@@ -135,6 +171,18 @@ public class Cells extends JPanel implements MouseListener {
                 && mouseClicked.x < (1 * (GamePanel_WIDTH / 3)) - 1)
         {
             cellSate[1][0] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[1][0]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[1][0]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
             System.out.println("2 1");
         }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1       //.  .  .
                 && mouseClicked.y > (1 * (GamePanel_WIDTH / 3)) - 1     //.  x  .
@@ -142,6 +190,18 @@ public class Cells extends JPanel implements MouseListener {
                 && mouseClicked.y < (2 * (GamePanel_WIDTH / 3)) - 1)
         {
             cellSate[1][1] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[1][1]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[1][1]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
             System.out.println("2 2");
         }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1       //.  .  .
                 && mouseClicked.y > (1 * (GamePanel_WIDTH / 3)) - 1     //.  .  x
@@ -149,6 +209,20 @@ public class Cells extends JPanel implements MouseListener {
                 && mouseClicked.y < (2 * (GamePanel_WIDTH / 3)) - 1)
         {
             cellSate[1][2] = playerTurn;
+
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[1][2]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[1][2]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
+
             System.out.println("2 3");
         }else if(  mouseClicked.x > (0 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y > (2 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
@@ -156,6 +230,19 @@ public class Cells extends JPanel implements MouseListener {
                 && mouseClicked.y < (3 * (GamePanel_WIDTH / 3)) - 1)
         {
             cellSate[2][0] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[2][0]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[2][0]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
+
             System.out.println("3 1");
         }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y > (2 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
@@ -163,6 +250,18 @@ public class Cells extends JPanel implements MouseListener {
                 && mouseClicked.y < (3 * (GamePanel_WIDTH / 3)) - 1)
         {
             cellSate[2][1] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[2][1]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[2][1]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
             System.out.println("3 2");
         }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y > (2 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
@@ -170,6 +269,19 @@ public class Cells extends JPanel implements MouseListener {
                 && mouseClicked.y < (3 * (GamePanel_WIDTH / 3)) - 1)
         {
             cellSate[2][2] = playerTurn;
+
+            if (playerTurn == 1){
+                System.out.println("cellSate[2][2]" + " : " + playerTurn);
+                playerTurn = 2;
+            }else if (playerTurn == 2){
+                System.out.println("cellSate[2][2]" + " : " + playerTurn);
+                playerTurn = 1;
+            }
+
+            timerMonitor = timerDuration;
+            currentTimerPosition = -1;
+
+
             System.out.println("3 3");
         }
 

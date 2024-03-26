@@ -66,6 +66,23 @@ public class BigPanel extends JPanel {
         super.paintComponent(g);
         g2 = (Graphics2D) g ;
 
+        //this if statements so the line that shows the player turn
+        int XOfLine = 0;
+        g2.setStroke(new BasicStroke(4));
+        if (playerTurn == 1){
+
+            XOfLine = 10;
+            g2.setColor(circleColor);
+            g2.drawLine(XOfLine,90, XOfLine + 65,90);
+            xColor.darker();
+        } else if (playerTurn == 2) {
+
+            XOfLine = 363;
+            g2.setColor(xColor);
+            g2.drawLine(XOfLine,90, XOfLine + 63,90);
+            circleColor.darker();
+        }
+
         TimerClock(g2);
 
         g2.setColor(new Color(0x4F606C));
