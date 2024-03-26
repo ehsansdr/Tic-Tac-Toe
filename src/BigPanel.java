@@ -11,9 +11,8 @@ public class BigPanel extends JPanel {
 
     BasicStroke timerStroke = new BasicStroke(7);
     JLabel player1Label = new JLabel();
-    public JLabel player1LabelScore = new JLabel();
     JLabel player2Label = new JLabel();
-    public JLabel player2LabelScore = new JLabel();
+
 
 
     public BigPanel(Cells cells) {

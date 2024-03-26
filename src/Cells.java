@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static Const.ConstData.Data.*;
@@ -227,56 +226,70 @@ public class Cells extends JPanel implements MouseListener {
 
     private void rulesChecking() {
         if(cellSate[0][0] == 1 && cellSate[0][1] == 1&& cellSate[0][2] == 1){//first row
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
         }else if(cellSate[1][0] == 1 && cellSate[1][1] == 1  && cellSate[1][2] == 1 ){//second row
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
         }else if(cellSate[2][0] == 1 && cellSate[2][1] == 1 && cellSate[2][2] == 1 ){//third row
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
+
         }else if(cellSate[0][0] == 1 && cellSate[1][0] == 1 && cellSate[2][0] == 1 ){//first column
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
+
         }else if(cellSate[0][1] == 1 && cellSate[1][1] == 1 && cellSate[2][1] == 1){//second column
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
+
         }else if(cellSate[0][2] == 1 && cellSate[1][2] == 1 && cellSate[2][2] == 1){//third column
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
+
         }else if(cellSate[0][0] == 1 && cellSate[1][1] == 1 && cellSate[2][2] == 1){//    \
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
+
         }else if(cellSate[0][2] == 1 && cellSate[1][1] == 1 && cellSate[2][0] == 1){//    /
-            System.out.println("player1Score++;");
-            player1Score++;
+            winningOperation(player1LabelScore,player1Score);
+
         }
 
         if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[1][0] == 2 && cellSate[1][1] == 2 && cellSate[1][2] == 2 ){//second row
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[2][0] == 2 && cellSate[2][1] == 2 && cellSate[2][2] == 2 ){//third row
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[0][0] == 2 && cellSate[1][0] == 2 && cellSate[2][0] == 2 ){//first column
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[0][1] == 2 && cellSate[1][1] == 2 && cellSate[2][1] == 2){//second column
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[0][2] == 2 && cellSate[1][2] == 2 && cellSate[2][2] == 2){//third column
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[0][0] == 2 && cellSate[1][1] == 2 && cellSate[2][2] == 2){//    \
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }else if(cellSate[0][2] == 2 && cellSate[1][1] == 2 && cellSate[2][0] == 2){//    /
-            System.out.println("player2Score++;");
-            player2Score++;
+            winningOperation(player2LabelScore,player2Score);
+
         }
+    }
+
+    private void winningOperation(JLabel labelOfPlayer,int scoreOfPlayer){
+
+        System.out.println();
+        labelOfPlayer.setText(++scoreOfPlayer + "");
+
+        newRound();
+    }
+
+    private void newRound() {
+        cellSate = new int[][]{ //0 is emty ir null, 1 is O , 2 is X
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
+        };
     }
 
     @Override

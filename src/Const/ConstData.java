@@ -1,5 +1,6 @@
 package Const;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class ConstData {
@@ -11,8 +12,10 @@ public class ConstData {
          };
          public static int playerTurn = 2;//0 is for waiting or no one playing,1 means it player 1 turn ,2 is for player 2
          public static int player1Score = 0;
+         public static JLabel player1LabelScore = new JLabel();
          public static int timerDuration = 10;//how many second timer should take a long
          public static int player2Score = 0;
+         public static JLabel player2LabelScore = new JLabel();
          public static int timerMonitor = timerDuration;
          public static float clockTimePart;
          public static float currentTimerPosition = 0;
