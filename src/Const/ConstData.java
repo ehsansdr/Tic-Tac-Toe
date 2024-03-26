@@ -27,15 +27,15 @@ public class ConstData {
 
          public static final int upper_gap = 125;
          public static final Color frameBackground = new Color(0x000000);
-         public static final Color bigPanelBackground = new Color(0x151F2A);
-         public static final Color gamePanelBackground = new Color(0x043565);
-         public static final Color gamePanelLinesBackground = new Color(0xFF9F9F9F, true);
+         public static final Color bigPanelBackground = new Color(0xDEE2E6);
+         public static final Color gamePanelBackground = new Color(0xDEE2E6);
+         public static final Color gamePanelLinesBackground = new Color(0xFF212529, true);
          public static final int signWidth = 100;
          public static final int signThickness = 15;
-         public static final Color xColor = new Color(0x9A0A0D);
-         public static final Color circleColor = new Color(0x1F7A8C);
-         public static final Color timerInnerCircle = new Color(0xF0FF3A);
-         public static final Color timerOuterCircle = new Color(0xFFC300);
+         public static final Color xColor = new Color(0x6C757D);
+         public static final Color circleColor = new Color(0x6C757D);
+         public static final Color timerInnerCircle = new Color(0x343A40);
+         public static final Color timerOuterCircle = new Color(0x212529);
 
 
 
