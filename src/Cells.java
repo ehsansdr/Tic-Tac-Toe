@@ -83,6 +83,7 @@ public class Cells extends JPanel implements MouseListener {
             g.setStroke(new BasicStroke(18));
             g.drawLine(xOfSing, YOfSing, xOfSing + signWidth, YOfSing + signWidth);// \
             g.drawLine(xOfSing, YOfSing + signWidth, xOfSing + signWidth, YOfSing);// /
+            //System.out.println("for " + player + " drawed");
         }
         else if(player == 1){
             g.setColor(circleColor);
@@ -90,6 +91,7 @@ public class Cells extends JPanel implements MouseListener {
             g.drawArc(cellColumn * (GamePanel_WIDTH / 3) + 22,
                     cellRow * (GamePanel_HEIGHT / 3) + 22,
                     signWidth, signWidth, 0, 360);
+            //System.out.println("for " + player + " drawed");
         }
     }
 
@@ -206,6 +208,8 @@ public class Cells extends JPanel implements MouseListener {
     }
 
     private void afterClickingOperation() {
+        
+        rulesChecking();
 
         System.out.println("\n" + Arrays.deepToString(cellSate) +"\n");
 
@@ -219,6 +223,44 @@ public class Cells extends JPanel implements MouseListener {
 
         timerMonitor = timerDuration;
         currentTimerPosition = -1;
+    }
+
+    private void rulesChecking() {
+              if(cellSate[0][0] == 1 && cellSate[0][1] == 1&& cellSate[0][2] == 1){//first row
+            player1Score++;
+        }else if(cellSate[1][0] == 1 && cellSate[1][1] == 1  && cellSate[1][2] == 1 ){//second row
+                  player1Score++;
+        }else if(cellSate[2][0] == 1 && cellSate[2][1] == 1 && cellSate[2][2] == 1 ){//third row
+                  player1Score++;
+        }else if(cellSate[0][0] == 1 && cellSate[1][0] == 1 && cellSate[2][0] == 1 ){//first column
+                  player1Score++;
+        }else if(cellSate[0][1] == 1 && cellSate[1][1] == 1 && cellSate[2][1] == 1){//second column
+                  player1Score++;
+        }else if(cellSate[0][2] == 1 && cellSate[1][2] == 1 && cellSate[2][2] == 1){//third column
+                  player1Score++;
+        }else if(cellSate[0][0] == 1 && cellSate[1][1] == 1 && cellSate[2][2] == 1){//    \
+                  player1Score++;
+        }else if(cellSate[0][2] == 1 && cellSate[1][1] == 1 && cellSate[2][0] == 1){//    /
+
+        }
+              
+              if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
+                  player2Score++;
+        }else if(cellSate[1][0] == 2 && cellSate[1][1] == 2 && cellSate[1][2] == 2 ){//second row
+                  player2Score++;
+        }else if(cellSate[2][0] == 2 && cellSate[2][1] == 2 && cellSate[2][2] == 2 ){//third row
+                  player2Score++;
+        }else if(cellSate[0][0] == 2 && cellSate[1][0] == 2 && cellSate[2][0] == 2 ){//first column
+                  player2Score++;
+        }else if(cellSate[0][1] == 2 && cellSate[1][1] == 2 && cellSate[2][1] == 2){//second column
+                  player2Score++;
+        }else if(cellSate[0][2] == 2 && cellSate[1][2] == 2 && cellSate[2][2] == 2){//third column
+                  player2Score++;
+        }else if(cellSate[0][0] == 2 && cellSate[1][1] == 2 && cellSate[2][2] == 2){//    \
+                  player2Score++;
+        }else if(cellSate[0][2] == 2 && cellSate[1][1] == 2 && cellSate[2][0] == 2){//    /
+                  player2Score++;
+        }
     }
 
     @Override
