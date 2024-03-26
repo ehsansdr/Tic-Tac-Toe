@@ -10,6 +10,10 @@ public class Cells extends JPanel implements MouseListener {
     Graphics2D g2;
     Point mouseClicked = new Point();
 
+    //because we can not find better way to find when both player equal
+    //i want to have variable that find and count if that come to 9 and
+    //no one win newRound() execute and no one get score
+    int turnTimeCounter = 0;
     public Cells() {
         setLocation(0,upper_gap);
         setSize(new Dimension(GamePanel_WIDTH,GamePanel_HEIGHT));
@@ -18,9 +22,6 @@ public class Cells extends JPanel implements MouseListener {
 
         setLayout(null);
     }
-
-
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -58,8 +59,6 @@ public class Cells extends JPanel implements MouseListener {
             }
         }
     }
-
-
     private void singDrawing(Graphics2D g,int player,int cellRow ,int cellColumn) {
         //System.out.println("singDrawing");
 
@@ -97,16 +96,12 @@ public class Cells extends JPanel implements MouseListener {
     public void drawPlayerSing(int player) {
 
     }
-
     public void OSingDrawing(Graphics2D g) {
 
         g.setColor(circleColor);
         g.setStroke(new BasicStroke(signThickness));
         g.drawArc(22, 22, signWidth, signWidth, 0, 360);
     }
-
-
-
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -226,11 +221,13 @@ public class Cells extends JPanel implements MouseListener {
             System.out.println("CURRENT playerTurn : " + playerTurn);
         }
 
+        turnTimeCounter++;
+        System.out.println("turnTimeCounter : " + turnTimeCounter);
         timerMonitor = timerDuration;
         currentTimerPosition = -1;
     }
 
-    private void rulesChecking() {
+    public void rulesChecking() {
         if(cellSate[0][0] == 1 && cellSate[0][1] == 1&& cellSate[0][2] == 1){//first row
             player1Score++;
             winningOperation(player1LabelScore,player1Score);
@@ -261,6 +258,9 @@ public class Cells extends JPanel implements MouseListener {
             player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
+        }else if (turnTimeCounter >= 9){
+            turnTimeCounter = 0;
+            newRound();
         }
 
         if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
@@ -295,13 +295,15 @@ public class Cells extends JPanel implements MouseListener {
             player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
+        } else if (turnTimeCounter >= 9){
+            turnTimeCounter = 0;
+            newRound();
         }
-
-
 
     }
 
-    private void winningOperation(JLabel labelOfPlayer,int scoreOfPlayer){
+    public void winningOperation(JLabel labelOfPlayer,int scoreOfPlayer){
+        turnTimeCounter = 0;
         if (playerTurn == 1){
             playerTurn = 2;
             System.out.println("CURRENT playerTurn : " + playerTurn);
@@ -312,11 +314,12 @@ public class Cells extends JPanel implements MouseListener {
 
         System.out.println(labelOfPlayer.getName() + " won this match");
         labelOfPlayer.setText(scoreOfPlayer + "");
-
         newRound();
     }
 
-    private void newRound() {
+    public void newRound() {
+        turnTimeCounter = 0;
+
         cellSate = new int[][]{ //0 is emty ir null, 1 is O , 2 is X
                 {0, 0, 0},
                 {0, 0, 0},

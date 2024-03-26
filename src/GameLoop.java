@@ -70,7 +70,7 @@ public class GameLoop implements Runnable {
                 deltaTimer--;
             }
 
-            //this if control the number that show in timer
+            //this if control the number that show in timer and player time chance
             if (System.currentTimeMillis() - lastCheck > 1000) {//every 1 sec
                 lastCheck = System.currentTimeMillis();
 
@@ -80,6 +80,24 @@ public class GameLoop implements Runnable {
                     currentTimerPosition = 0;
                     timerMonitor = timerDuration;
                     currentTimerPosition = 0;
+
+                    //if player lost his time the turn goes to another player
+                    if (playerTurn == 1){
+                        playerTurn = 2;
+                        System.out.println("player 1 lost his time");
+                        System.out.println("CURRENT playerTurn : " + playerTurn);
+                    }else if (playerTurn == 2){
+                        playerTurn = 1;
+                        System.out.println("player 1 lost his time");
+                        System.out.println("CURRENT playerTurn : " + playerTurn);
+                    }
+
+                    //if all cells is full and no one won after time duration new match begin
+                    if (cells.turnTimeCounter >= 9){
+                        System.out.println("\nDRAW\n");
+                        cells.newRound();
+                    }
+
                 }
 
 
