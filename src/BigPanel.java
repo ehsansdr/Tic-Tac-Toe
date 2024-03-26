@@ -11,9 +11,9 @@ public class BigPanel extends JPanel {
 
     BasicStroke timerStroke = new BasicStroke(7);
     JLabel player1Label = new JLabel();
-    JLabel player1LabelScore = new JLabel();
+    public JLabel player1LabelScore = new JLabel();
     JLabel player2Label = new JLabel();
-    JLabel player2LabelScore = new JLabel();
+    public JLabel player2LabelScore = new JLabel();
 
 
     public BigPanel(Cells cells) {
@@ -44,7 +44,7 @@ public class BigPanel extends JPanel {
         player2Label.setForeground(xColor.darker());
         player2Label.setOpaque(false);
 
-        player2LabelScore.setText(player1Score + "");
+        player2LabelScore.setText(player2Score + "");
         player2LabelScore.setFont(new Font("Source Code Pro",Font.BOLD,80));
         player2LabelScore.setLocation(380,1);
         player2LabelScore.setSize(250,70);

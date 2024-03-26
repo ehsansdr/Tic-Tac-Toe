@@ -226,40 +226,56 @@ public class Cells extends JPanel implements MouseListener {
     }
 
     private void rulesChecking() {
-              if(cellSate[0][0] == 1 && cellSate[0][1] == 1&& cellSate[0][2] == 1){//first row
+        if(cellSate[0][0] == 1 && cellSate[0][1] == 1&& cellSate[0][2] == 1){//first row
+            System.out.println("player1Score++;");
             player1Score++;
         }else if(cellSate[1][0] == 1 && cellSate[1][1] == 1  && cellSate[1][2] == 1 ){//second row
-                  player1Score++;
+            System.out.println("player1Score++;");
+            player1Score++;
         }else if(cellSate[2][0] == 1 && cellSate[2][1] == 1 && cellSate[2][2] == 1 ){//third row
-                  player1Score++;
+            System.out.println("player1Score++;");
+            player1Score++;
         }else if(cellSate[0][0] == 1 && cellSate[1][0] == 1 && cellSate[2][0] == 1 ){//first column
-                  player1Score++;
+            System.out.println("player1Score++;");
+            player1Score++;
         }else if(cellSate[0][1] == 1 && cellSate[1][1] == 1 && cellSate[2][1] == 1){//second column
-                  player1Score++;
+            System.out.println("player1Score++;");
+            player1Score++;
         }else if(cellSate[0][2] == 1 && cellSate[1][2] == 1 && cellSate[2][2] == 1){//third column
-                  player1Score++;
+            System.out.println("player1Score++;");
+            player1Score++;
         }else if(cellSate[0][0] == 1 && cellSate[1][1] == 1 && cellSate[2][2] == 1){//    \
-                  player1Score++;
+            System.out.println("player1Score++;");
+            player1Score++;
         }else if(cellSate[0][2] == 1 && cellSate[1][1] == 1 && cellSate[2][0] == 1){//    /
-
+            System.out.println("player1Score++;");
+            player1Score++;
         }
-              
-              if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
-                  player2Score++;
+
+        if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[1][0] == 2 && cellSate[1][1] == 2 && cellSate[1][2] == 2 ){//second row
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[2][0] == 2 && cellSate[2][1] == 2 && cellSate[2][2] == 2 ){//third row
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[0][0] == 2 && cellSate[1][0] == 2 && cellSate[2][0] == 2 ){//first column
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[0][1] == 2 && cellSate[1][1] == 2 && cellSate[2][1] == 2){//second column
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[0][2] == 2 && cellSate[1][2] == 2 && cellSate[2][2] == 2){//third column
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[0][0] == 2 && cellSate[1][1] == 2 && cellSate[2][2] == 2){//    \
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }else if(cellSate[0][2] == 2 && cellSate[1][1] == 2 && cellSate[2][0] == 2){//    /
-                  player2Score++;
+            System.out.println("player2Score++;");
+            player2Score++;
         }
     }
 
