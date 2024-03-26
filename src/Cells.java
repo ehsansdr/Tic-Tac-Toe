@@ -232,54 +232,72 @@ public class Cells extends JPanel implements MouseListener {
 
     private void rulesChecking() {
         if(cellSate[0][0] == 1 && cellSate[0][1] == 1&& cellSate[0][2] == 1){//first row
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
         }else if(cellSate[1][0] == 1 && cellSate[1][1] == 1  && cellSate[1][2] == 1 ){//second row
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
         }else if(cellSate[2][0] == 1 && cellSate[2][1] == 1 && cellSate[2][2] == 1 ){//third row
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
         }else if(cellSate[0][0] == 1 && cellSate[1][0] == 1 && cellSate[2][0] == 1 ){//first column
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
         }else if(cellSate[0][1] == 1 && cellSate[1][1] == 1 && cellSate[2][1] == 1){//second column
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
         }else if(cellSate[0][2] == 1 && cellSate[1][2] == 1 && cellSate[2][2] == 1){//third column
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
         }else if(cellSate[0][0] == 1 && cellSate[1][1] == 1 && cellSate[2][2] == 1){//    \
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
         }else if(cellSate[0][2] == 1 && cellSate[1][1] == 1 && cellSate[2][0] == 1){//    /
+            player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
         }
 
         if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[1][0] == 2 && cellSate[1][1] == 2 && cellSate[1][2] == 2 ){//second row
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[2][0] == 2 && cellSate[2][1] == 2 && cellSate[2][2] == 2 ){//third row
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[0][0] == 2 && cellSate[1][0] == 2 && cellSate[2][0] == 2 ){//first column
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[0][1] == 2 && cellSate[1][1] == 2 && cellSate[2][1] == 2){//second column
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[0][2] == 2 && cellSate[1][2] == 2 && cellSate[2][2] == 2){//third column
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[0][0] == 2 && cellSate[1][1] == 2 && cellSate[2][2] == 2){//    \
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }else if(cellSate[0][2] == 2 && cellSate[1][1] == 2 && cellSate[2][0] == 2){//    /
+            player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
         }
+
+
 
     }
 
@@ -292,8 +310,8 @@ public class Cells extends JPanel implements MouseListener {
             System.out.println("CURRENT playerTurn : " + playerTurn);
         }
 
-        System.out.println();
-        labelOfPlayer.setText(++scoreOfPlayer + "");
+        System.out.println(labelOfPlayer.getName() + " won this match");
+        labelOfPlayer.setText(scoreOfPlayer + "");
 
         newRound();
     }
