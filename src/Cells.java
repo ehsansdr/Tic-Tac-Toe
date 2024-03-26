@@ -212,6 +212,14 @@ public class Cells extends JPanel implements MouseListener {
     private void afterClickingOperation() {
         
         rulesChecking();
+        int i = 0;
+        for (int[] row : cellSate) {
+            for (int element : row) {
+                stateOfCell[i] = element;
+                i++;
+            }
+        }
+
 
         System.out.println("\n" + Arrays.deepToString(cellSate) +"\n");
 
@@ -302,14 +310,12 @@ public class Cells extends JPanel implements MouseListener {
             newRound();
         }
 
-        for (int i = 0; i < 3;i++){/**   BUG */
-            for (int j = 0;j < 3 ;j++){
-                if(cellSate[i][j] == 0){
-                    isTheGameDraw = false;
-                    continue;
-                }
-            }
+        if (Arrays.deepToString(cellSate).indexOf("0") == -1){
+            System.out.println("Drawwwwwwwwwwwwwwwwwwwwwww");
+            newRound();
         }
+
+
 
     }
 
