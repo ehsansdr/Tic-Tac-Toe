@@ -6,7 +6,6 @@ public class GameLoop implements Runnable {
     Frame frame;
     BigPanel bigPanel;
     Cells cells = new Cells();
-
     private int fps = 40;
     private int UPS = 120;
     private int timerDurationFPS = 120;//we use this var to control upper timer of our bigPanel

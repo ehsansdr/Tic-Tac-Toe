@@ -10,6 +10,8 @@ public class Cells extends JPanel implements MouseListener {
     Graphics2D g2;
     Point mouseClicked = new Point();
 
+    boolean isTheGameDraw = false;
+
     //because we can not find better way to find when both player equal
     //i want to have variable that find and count if that come to 9 and
     //no one win newRound() execute and no one get score
@@ -298,6 +300,15 @@ public class Cells extends JPanel implements MouseListener {
         } else if (turnTimeCounter >= 9){
             turnTimeCounter = 0;
             newRound();
+        }
+
+        for (int i = 0; i < 3;i++){/**   BUG */
+            for (int j = 0;j < 3 ;j++){
+                if(cellSate[i][j] == 0){
+                    isTheGameDraw = false;
+                    continue;
+                }
+            }
         }
 
     }
