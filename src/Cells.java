@@ -123,7 +123,7 @@ public class Cells extends JPanel implements MouseListener {
             afterClickingOperation();
 
             System.out.println("1 1");
-        }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1       //. 1 x 2 . 3
+        }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1     //. 1 x 2 . 3
                 && mouseClicked.x < (2 * (GamePanel_WIDTH / 3)) - 1     //. 1 . 2 . 3
                 && mouseClicked.y < (1 * (GamePanel_WIDTH / 3)) - 1)    //. 1 . 2 . 3
         {
@@ -132,7 +132,7 @@ public class Cells extends JPanel implements MouseListener {
             afterClickingOperation();
 
             System.out.println("1 2");
-        }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1       //. 1 . 2 x 3
+        }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1    //. 1 . 2 x 3
                 && mouseClicked.x < (3 * (GamePanel_WIDTH / 3)) - 1     //. 1 . 2 . 3
                 && mouseClicked.y < (1 * (GamePanel_WIDTH / 3)) - 1)    //. 1 . 2 . 3
         {
@@ -151,7 +151,7 @@ public class Cells extends JPanel implements MouseListener {
             afterClickingOperation();
 
             System.out.println("2 1");
-        }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1       //.  .  .
+        }else if(  mouseClicked.x > (1 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y > (1 * (GamePanel_WIDTH / 3)) - 1     //.  x  .
                 && mouseClicked.x < (2 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y < (2 * (GamePanel_WIDTH / 3)) - 1)
@@ -161,7 +161,7 @@ public class Cells extends JPanel implements MouseListener {
             afterClickingOperation();
 
             System.out.println("2 2");
-        }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1       //.  .  .
+        }else if(  mouseClicked.x > (2 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y > (1 * (GamePanel_WIDTH / 3)) - 1     //.  .  x
                 && mouseClicked.x < (3 * (GamePanel_WIDTH / 3)) - 1     //.  .  .
                 && mouseClicked.y < (2 * (GamePanel_WIDTH / 3)) - 1)
@@ -274,9 +274,17 @@ public class Cells extends JPanel implements MouseListener {
             winningOperation(player2LabelScore,player2Score);
 
         }
+
     }
 
     private void winningOperation(JLabel labelOfPlayer,int scoreOfPlayer){
+        if (playerTurn == 1){
+            playerTurn = 2;
+            System.out.println("CURRENT playerTurn : " + playerTurn);
+        }else if (playerTurn == 2){
+            playerTurn = 1;
+            System.out.println("CURRENT playerTurn : " + playerTurn);
+        }
 
         System.out.println();
         labelOfPlayer.setText(++scoreOfPlayer + "");

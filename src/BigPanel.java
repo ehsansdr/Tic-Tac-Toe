@@ -66,13 +66,13 @@ public class BigPanel extends JPanel {
         //this if statements so the line that shows the player turn
         int XOfLine = 0;
         g2.setStroke(new BasicStroke(4));
-        if (playerTurn == 2){
+        if (playerTurn == 1){
 
             XOfLine = 10;
             g2.setColor(circleColor);
             g2.drawLine(XOfLine,90, XOfLine + 65,90);
             xColor.darker();
-        } else if (playerTurn == 1) {
+        } else if (playerTurn == 2) {
 
             XOfLine = 363;
             g2.setColor(xColor);
