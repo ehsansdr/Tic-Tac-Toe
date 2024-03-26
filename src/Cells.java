@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import static Const.ConstData.Data.*;
 public class Cells extends JPanel implements MouseListener {
@@ -49,8 +51,11 @@ public class Cells extends JPanel implements MouseListener {
         for (int i = 0; i < 3;i++){/**   BUG */
             for (int j = 0;j < 3 ;j++){
                 if(cellSate[i][j] == 1 || cellSate[i][j] == 2) {
-
-                    singDrawing(g2, playerTurn, i, j);
+                    if(playerTurn == 1){
+                        singDrawing(g2, playerTurn, i, j);
+                    }else if (playerTurn == 2){
+                        singDrawing(g2, playerTurn, i, j);
+                    }
                 }
             }
         }
@@ -76,17 +81,17 @@ public class Cells extends JPanel implements MouseListener {
         int YOfSing = cellRow * (GamePanel_HEIGHT / 3) + 27;
         int signWidth = 90;
         // 0 OR 1 OR 2 , NOT 3
-        if(player == 2) {
+        if(playerTurn == 2) {
             g.setColor(xColor);
             g.setStroke(new BasicStroke(18));
             g.drawLine(xOfSing, YOfSing, xOfSing + signWidth, YOfSing + signWidth);// \
             g.drawLine(xOfSing, YOfSing + signWidth, xOfSing + signWidth, YOfSing);// /
         }
-        else if(player == 1){
+        else if(playerTurn == 1){
             g.setColor(circleColor);
             g.setStroke(new BasicStroke(signThickness));
-            g.drawArc(cellRow * (GamePanel_WIDTH / 3) + 22,
-                    cellColumn * (GamePanel_HEIGHT / 3) + 22,
+            g.drawArc(cellColumn * (GamePanel_WIDTH / 3) + 22,
+                    cellRow * (GamePanel_HEIGHT / 3) + 22,
                     signWidth, signWidth, 0, 360);
         }
     }
@@ -204,6 +209,9 @@ public class Cells extends JPanel implements MouseListener {
     }
 
     private void afterClickingOperation() {
+
+        System.out.println("\n" + Arrays.deepToString(cellSate) +"\n");
+
         if (playerTurn == 1){
             playerTurn = 2;
             System.out.println("CURRENT playerTurn : " + playerTurn);
