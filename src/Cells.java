@@ -12,10 +12,6 @@ public class Cells extends JPanel implements MouseListener {
 
     boolean isTheGameDraw = false;
 
-    //because we can not find better way to find when both player equal
-    //i want to have variable that find and count if that come to 9 and
-    //no one win newRound() execute and no one get score
-    int turnTimeCounter = 0;
     public Cells() {
         setLocation(0,upper_gap);
         setSize(new Dimension(GamePanel_WIDTH,GamePanel_HEIGHT));
@@ -215,7 +211,6 @@ public class Cells extends JPanel implements MouseListener {
         int i = 0;
         for (int[] row : cellSate) {
             for (int element : row) {
-                stateOfCell[i] = element;
                 i++;
             }
         }
@@ -231,8 +226,6 @@ public class Cells extends JPanel implements MouseListener {
             System.out.println("CURRENT playerTurn : " + playerTurn);
         }
 
-        turnTimeCounter++;
-        System.out.println("turnTimeCounter : " + turnTimeCounter);
         timerMonitor = timerDuration;
         currentTimerPosition = -1;
     }
@@ -268,9 +261,6 @@ public class Cells extends JPanel implements MouseListener {
             player1Score++;
             winningOperation(player1LabelScore,player1Score);
 
-        }else if (turnTimeCounter >= 9){
-            turnTimeCounter = 0;
-            newRound();
         }
 
         if(cellSate[0][0] == 2 && cellSate[0][1] == 2 && cellSate[0][2] == 2){//first row
@@ -305,9 +295,6 @@ public class Cells extends JPanel implements MouseListener {
             player2Score++;
             winningOperation(player2LabelScore,player2Score);
 
-        } else if (turnTimeCounter >= 9){
-            turnTimeCounter = 0;
-            newRound();
         }
 
         if (Arrays.deepToString(cellSate).indexOf("0") == -1){
@@ -320,7 +307,6 @@ public class Cells extends JPanel implements MouseListener {
     }
 
     public void winningOperation(JLabel labelOfPlayer,int scoreOfPlayer){
-        turnTimeCounter = 0;
         if (playerTurn == 1){
             playerTurn = 2;
             System.out.println("CURRENT playerTurn : " + playerTurn);
@@ -335,7 +321,6 @@ public class Cells extends JPanel implements MouseListener {
     }
 
     public void newRound() {
-        turnTimeCounter = 0;
 
         cellSate = new int[][]{ //0 is emty ir null, 1 is O , 2 is X
                 {0, 0, 0},

@@ -91,12 +91,6 @@ public class GameLoop implements Runnable {
                         System.out.println("CURRENT playerTurn : " + playerTurn);
                     }
 
-                    //if all cells is full and no one won after time duration new match begin
-                    if (cells.turnTimeCounter >= 9){
-                        System.out.println("\nDRAW\n");
-                        cells.newRound();
-                    }
-
                 }
 
 
